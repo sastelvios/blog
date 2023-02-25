@@ -1,0 +1,32 @@
+{% extends 'layout_home.html' %}
+
+{% block sub_header %}
+    <section class="s-featured">
+        <div class="row">
+            <div class="col-full">                
+                {% for post in posts %}                
+                    <div class="featured-slider featured" data-aos="zoom-in">                        
+                        <div class="featured__slide">
+                            <div class="entry">
+                                <div class="entry__background" style="background-image:url('{{post.cover}}');"></div>
+                                    <div class="entry__content">
+                                        <span class="entry__category"><a href="categories/technology/category.html">{{post.category}}</a></span>
+                                        <h1><a href="categories/technology/article/1.html" title="{{post.title}}">{{post.title}}</a></h1>
+                                        <div class="entry__info">
+                                            <a href="#0" class="entry__profile-pic">
+                                                <img class="avatar" src="../rsc/img/icon/sas_logo.png" alt="">
+                                            </a>
+                                            <ul class="entry__meta">
+                                                <li><a href="http://www.sastelvio.com/en/" target="_blank">{{post.author.get_full_name}}</a></li>
+                                                <li>{{post.created_at|date:'M d, Y'}}</li>
+                                            </ul>
+                                        </div>
+                                </div> 
+                            </div> 
+                        </div>  
+                    </div> 
+                {% endfor %}
+            </div> 
+        </div>
+    </section> 
+{% endblock %}
