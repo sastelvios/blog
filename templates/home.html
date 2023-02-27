@@ -1,32 +1,84 @@
 {% extends 'layout_home.html' %}
 
-{% block sub_header %}
+{% load static %}
+
+{% block content %}
     <section class="s-featured">
         <div class="row">
-            <div class="col-full">                
-                {% for post in posts %}                
-                    <div class="featured-slider featured" data-aos="zoom-in">                        
+            <div class="col-full">
+                <div class="featured-slider featured" data-aos="zoom-in">
+                    {% for post in posts %}  
                         <div class="featured__slide">
                             <div class="entry">
-                                <div class="entry__background" style="background-image:url('{{post.cover}}');"></div>
-                                    <div class="entry__content">
-                                        <span class="entry__category"><a href="categories/technology/category.html">{{post.category}}</a></span>
-                                        <h1><a href="categories/technology/article/1.html" title="{{post.title}}">{{post.title}}</a></h1>
-                                        <div class="entry__info">
-                                            <a href="#0" class="entry__profile-pic">
-                                                <img class="avatar" src="../rsc/img/icon/sas_logo.png" alt="">
-                                            </a>
-                                            <ul class="entry__meta">
-                                                <li><a href="http://www.sastelvio.com/en/" target="_blank">{{post.author.get_full_name}}</a></li>
-                                                <li>{{post.created_at|date:'M d, Y'}}</li>
-                                            </ul>
-                                        </div>
+                                <div class="entry__background" style="background-image:url('{{post.cover.url}}');"></div>
+                                <div class="entry__content">
+                                    <span class="entry__category"><a href="categories/technology/category.html">{{post.category}}</a></span>
+                                    <h1><a href="categories/technology/article/1.html" title="">{{post.title}}</a></h1>
+                                    <div class="entry__info">
+                                        <a href="#0" class="entry__profile-pic">
+                                            <img class="avatar" src="{% static 'img/avatar.png' %}" alt="">
+                                        </a>
+                                        <ul class="entry__meta">
+                                            <li><a href="http://www.sastelvio.com/en/" target="_blank">{{post.author.get_full_name}}</a></li>
+                                            <li>{{post.created_at|date:'(l) F d, Y'}}</li>
+                                        </ul>
+                                    </div>
                                 </div> 
                             </div> 
-                        </div>  
-                    </div> 
-                {% endfor %}
+                        </div> 
+                    {% endfor %}                    
+                </div> 
             </div> 
         </div>
     </section> 
+
+    <section class="s-content">
+        <div class="row entries-wrap wide">
+            <div class="entries">
+                {% for post in posts %} 
+                    <article class="col-block">
+                        <div class="item-entry" data-aos="zoom-in">
+                            <div class="item-entry__thumb">
+                                <a href="categories/energy/article/1.html" class="item-entry__thumb-link">
+                                    <img src="{{post.cover.url}}" srcset="{{post.cover.url}} 1x, {{post.cover.url}} 2x" alt="">
+                                </a>
+                            </div>
+                            <div class="item-entry__text">
+                                <div class="item-entry__cat">
+                                    <a href="categories/energy/category.html" class="texto_destaque">{{post.category}}</a>
+                                </div>
+                                <h1 class="item-entry__title"><a href="categories/energy/article/1.html">{{post.title}}</a></h1>
+                                <div class="item-entry__date">
+                                    <a href="categories/energy/article/1.html">{{post.created_at|date:'(l) F d, Y'}}</a>
+                                </div>
+                            </div>
+                        </div> 
+                    </article> 
+                {% endfor %}     
+            </div> 
+        </div> 
+        <div class="row pagination-wrap">
+            <div class="col-full">
+                <nav class="pgn" data-aos="fade-up">
+                    <ul>
+                        <!--
+                        <li><a class="pgn__prev" href="#0">Prev</a></li>
+                        -->
+                        <li><a class="pgn__num current" href="#0">1</a></li>
+                        <!--
+                        <li><span class="pgn__num current">2</span></li>
+                        <li><a class="pgn__num" href="#0">3</a></li>
+                        <li><a class="pgn__num" href="#0">4</a></li>
+                        <li><a class="pgn__num" href="#0">5</a></li>
+                        <li><span class="pgn__num dots">…</span></li>
+                        <li><a class="pgn__num" href="#0">8</a></li>
+                        <li><a class="pgn__next" href="#0">Next</a></li>
+                        -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section> 
+
+    
 {% endblock %}

@@ -16,7 +16,7 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=255)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
-    cover = models.ImageField()
+    cover = models.ImageField(upload_to='posts')
     summary = RichTextField()
     content = RichTextUploadingField()
     author = models.ForeignKey(User, on_delete=models.PROTECT)
