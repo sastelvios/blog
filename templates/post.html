@@ -1,0 +1,828 @@
+{% extends 'layout_home.html' %}
+
+{% load static %}
+
+{% block content %}
+    <section class="s-content s-content--top-padding s-content--narrow">
+        <article class="row entry format-standard">
+
+            <div class="entry__media col-full">
+                <div class="entry__post-thumb">
+                    <img src="{{post.cover.url}}" srcset="{{post.cover.url}} 2000w, {{post.cover.url}} 1000w, {{post.cover.url}} 500w" sizes="(max-width: 2000px) 100vw, 2000px" alt="">
+                </div>
+            </div>
+            <div class="entry__header col-full">
+                <h1 class="entry__header-title display-1">
+                    {{post.title}}
+                </h1>
+                <ul class="entry__header-meta">
+                    <li class="date">{{post.created_at|date:'(l) F d, Y'}}</li>
+                    <li class="byline">
+                        By
+                        <span  class="texto_destaque"><a href="http://www.sastelvio.com/en/" target="_blank">{{post.author.get_full_name}}</a></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-full entry__main">
+                <p class="lead drop-cap texto_justificado">
+                    {{post.summary}}
+                </p>                
+                
+                <h2 class="texto_destaque">Introduction</h2>
+                <h3>How was the Java Language conceived?</h3>
+                <p class="texto_justificado">
+                    {{post.content|safe}}
+                </p>
+                <h3>Java Properties</h3>
+                <p>The Java language was designed with the following properties:</p>
+                <ul>
+                    <li>
+                        <h5>Interpreted and compiled language:</h5>
+                        <p class="texto_justificado">
+                            The Java source code is transformed into a bytecode that does not depend on the target platform, I mean,
+                            allows it to run on any device that processes data in bytes.
+                            These bytecode instructions will be interpreted by the Java Virtual machine (JVM).
+                            The JVM contains the so-called Hotspot-Compiler, which translates performance-critical bytecode instructions into
+                            native code instructions.
+                        </p>                            
+                    </li>
+                    <li>
+                        <h5>Object Oriented Programming Language:</h5>
+                        <p class="texto_justificado">
+                            Object-Oriented Programming is a way of organizing application code as a collection of objects as an instance of a class. 
+                            Concepts that will be deepened during this article and other articles on this blog.
+                        </p>   
+                        <p>
+                            The four basic concepts of Object-Oriented Programming are:
+                        </p>
+                        <ul>
+                            <li>Abstraction</li>
+                            <li>Encapsulation</li>
+                            <li>Inheritance</li>
+                            <li>Polymorphism</li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <h5>Automatic memory management:</h5>
+                        <p class="texto_justificado">
+                            Java manages the allocation and deallocation of memory  when creating new objects.
+                            The application code doesn't have direct access to memory, however, the so-called Garbage Collector 
+                            automatically deletes objects for which there is no active pointer.
+                        </p>                            
+                    </li>
+                    <li>
+                        <h5>Simple Language:</h5>
+                        <p class="texto_justificado">
+                            Java is one of the simple languages, as it lacks complex features, such as pointers, operator overload, 
+                            multiple inheritances, explicit memory allocation.
+                        </p>                            
+                    </li>
+                    <li>
+                        <h5>Robust Language:</h5>
+                        <p class="texto_justificado">
+                            The Java language is robust, which means reliable. 
+                            It is developed in order to place a large effort in checking errors as early as possible, so the java compiler can 
+                            detect up to even those errors that are not easy to detect by another programming language. The main characteristics 
+                            of Java that make it robust are Garbage Collector, exception handling, and memory allocation.
+                        </p>                            
+                    </li>
+                    <li>
+                        <h5>Secure Language:</h5>
+                        <p class="texto_justificado">
+                            In java, we don't have pointers, so we can't access matrices outside the limit, that is, 
+                            shows <span class = "texto_destaque">ArrayIndexOutOfBoundsException</span> if we try to do so. 
+                            That’s why several security holes, like stack corruption or buffer overflow, are impossible to exploit in Java.
+                        </p>                            
+                    </li>
+                    <li>
+                        <h5>Distributed Language:</h5>
+                        <p class="texto_justificado">
+                            We can create distributed applications using the Java programming language. Remote Method Invocation and
+                            Enterprise Java Beans are used to create applications distributed in Java. Java programs can be
+                            easily distributed on one or more systems that are connected to each other through an Internet connection.
+                        </p>                            
+                    </li>
+                    <li>
+                        <h5>Multithreading:</h5>
+                        <p class="texto_justificado">
+                            Java supports multithreading, which is the Java feature that allows running two or more parts of application using the best CPU performance.
+                        </p>                            
+                    </li>
+                    <li>
+                        <h5>Portable Language:</h5>
+                        <p class="texto_justificado">
+                            As we know, Java code written on one machine can be executed on another device, even with different Operating Systems.
+                            The platform-independent feature of Java is possible due to the platform-independent bytecode and can run over all platforms.
+                        </p>                            
+                    </li>
+                </ul>
+                <blockquote>
+                    <p class="texto_destaque">
+                        The Java syntax is similar to C ++. Java is case sensitive, for instance, variables named myValue and
+                        myvalue are treated as different
+                    </p>
+                </blockquote>
+
+                <h2 class="texto_destaque">Java Terminologies</h2>
+                <h3>Java Virtual Machine (JVM)</h3>
+                <p class="texto_justificado">
+                    At run time, the Java Virtual Machine (JVM) reads and interprets .class files and executes the application 
+                    instructions on the native hardware platform for which the JVM was written. The JVM interprets the bytecode 
+                    to the <a href="https://en.wikipedia.org/wiki/Assembly_language" target="_blank" rel="noreferrer noopener nofollow"> Assembly language </a> instructions making the CPU understand it.
+                    The difference is that the JVM is a piece of application written specifically for a given platform.
+                    The JVM is the core of the “write once, run anywhere” principle of the Java language.
+                    The code can run on any chipset for which the proper JVM implementation is available.
+                    JVMs are available for major platforms, such as Linux, Windows and Mac, also for cell phones and other niche devices.
+                </p>
+                <h3>Java Development Kit (JDK)</h3>
+                <p class="texto_justificado">
+                    When you download a Java Development Kit (JDK), you get, - in addition to the compiler and other tools, 
+                    -a complete class library of pre-construction utilities that helps you perform most common application development tasks. 
+                    Read the <a href="https://docs.oracle.com/javase/8/docs/api/" target="_blank" rel="noreferrer noopener nofollow"> JDK Documentation </a> for more details.
+                </p>
+                <h3>Java Runtime Environment (JRE)</h3>
+                <p class="texto_justificado">
+                    The Java Runtime Environment (JRE) includes the JVM, code libraries, and components necessary to run programs that are written in the Java language.
+                    The JRE is available for several platforms. You can freely redistribute the JRE with your applications, according to the terms of the JRE license, 
+                    to provide application users with a platform on which they run your application. The JRE is included in the JDK by default.
+                </p>
+                <h3>Java Compiler (JAVAC)</h3>
+                <p class="texto_justificado">
+                    When writing application on the Java platform, the source code is stored in .java files, and then the compiler compiles them.
+                    The compiler checks your code against the language's syntax rules and then generates bytecode in .class files.
+                    Bytecode is a set of instructions designed to execute on a Java virtual machine (JVM).
+                    By including this level of abstraction, the Java compiler differs from other language compilers,
+                    that write appropriate instructions to the CPU chipset on which the program is run, thus allowing portability.
+                </p>
+                <h3>Garbage Collector</h3>
+                <p class="texto_justificado">
+                    Instead of forcing the application to maintain memory allocation (or use a third-party library for this), the Java platform provides non-standard memory management in other languages.
+                    When your Java application creates an object instance at run time, the JVM automatically allocates memory space for that object from a heap memory pool - reserved for your application's use.
+                    The Java Garbage Collector runs in the background, keeping track of which objects the application no longer needs and reclaiming memory from them.
+                    This approach to memory manipulation is called implicit memory management because it does not require writing any memory manipulation code. 
+                    Garbage collection is one of the essential resources for the performance of the Java platform.
+                </p>
+
+                <h2 class="texto_destaque">Hello World dot Java</h2>
+                <h3>Reserved Words</h3>
+                <p class="texto_justificado">
+                    Like any programming language, the Java language designates certain words that the compiler recognizes as special. 
+                    For this reason, they cannot be used to name your Java constructs.
+                    The list of reserved words is surprisingly short:
+                </p>
+                <div class="table-responsive">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>abstract</td>
+                                <td>assert</td>
+                                <td>boolean</td>
+                            </tr>
+                            <tr>
+                                <td>break</td>
+                                <td>byte</td>
+                                <td>case</td>
+                            </tr>
+                            <tr>
+                                <td>catch</td>
+                                <td>char</td>
+                                <td>class</td>
+                            </tr>
+                            <tr>
+                                <td>const</td>
+                                <td>continue</td>
+                                <td>default</td>
+                            </tr>
+                            <tr>
+                                <td>do</td>
+                                <td>double</td>
+                                <td>else</td>
+                            </tr>
+                            <tr>
+                                <td>enum</td>
+                                <td>extends</td>
+                                <td>final</td>
+                            </tr>
+                            <tr>
+                                <td>finally</td>
+                                <td>assert</td>
+                                <td>float</td>
+                            </tr>
+                            <tr>
+                                <td>goto</td>
+                                <td>if</td>
+                                <td>implements</td>
+                            </tr>
+                            <tr>
+                                <td>import</td>
+                                <td>instanceof</td>
+                                <td>int</td>
+                            </tr>
+                            <tr>
+                                <td>interface</td>
+                                <td>long</td>
+                                <td>native</td>
+                            </tr>
+                            <tr>
+                                <td>new</td>
+                                <td>para</td>
+                                <td>package</td>
+
+                            </tr>
+                            <tr>
+                                <td>private</td>
+                                <td>protected</td>
+                                <td>public</td>                                    
+                            </tr>
+                            <tr>
+                                <td>return</td>
+                                <td>short</td>
+                                <td>static</td>
+                            </tr>
+                            <tr>
+                                <td>strictfp</td>
+                                <td>super</td>
+                                <td>switch</td>
+                            </tr>
+                            <tr>
+                                <td>synchronized</td>
+                                <td>this</td>
+                                <td>throw</td>
+                            </tr>
+                            <tr>
+                                <td>throws</td>
+                                <td>transient</td>
+                                <td>try</td>
+                            </tr>
+                            <tr>
+                                <td>void</td>
+                                <td>volatile</td>
+                                <td>while</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="texto_justificado">
+                    Note that <span class = "texto_destaque"> true </span>, <span class = "texto_destaque"> false </span> and <span class = "texto_destaque"> null </span> are technically non-reserved words.
+                    Although they are literal, you cannot use them to name Java constructs either.
+                </p>
+                <blockquote>
+                    <p class="texto_destaque">
+                        An advantage of programming with an IDE is that it can use syntax coloring for reserved words
+                    </p>
+                </blockquote>
+                <h3>Java Class</h3>
+                <p class="texto_justificado">
+                    A class is a description of reality, I mean, a blueprint for a discrete entity (object) that contains attributes and behaviors.
+                    The class defines the basic structure of the object and, at run time, your application creates an instance of the object.
+                    An object has a defined limit and state and can take actions when duly requested.
+                    Each Object-Oriented Language has rules on how to define a class.
+                </p>
+                <pre><code>//a basic Java program
+    import java.io.*; 
+    public class HelloWorld { 
+    public static void main(String[] args) 
+    { 
+    System.out.println("Hello World"); 
+    } 
+    }</code></pre>
+                <h5>Explanation:</h5>
+                <ol>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class = "texto_boldado"> Comments: </span> developers can include comments to help the documentation of the code.
+                            The Java syntax allows for single line and multiline comments.
+                            A single line comment must be contained in one line, although it is possible to use comments from an adjacent single line to form a block. 
+                            A multiline comment starts with / *, must end with * /, and can cover any number of lines.                            
+                        </p>
+                        <span>Single line comments:</span>
+                        <pre><code>// Single line comment</code></pre>
+                        <span>Multi-line comments:</span>
+                        <pre><code>/* 
+    Multi-line comment
+    This is another line that is included in the same comment
+    */</code></pre>
+                    </li>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class="texto_boldado">import java.io.*:</span> 
+                            it means that all classes in the io package can be imported to your class.
+                            The Java io package provides a set of input and output streams for reading and writing data to files or other sources of input or output.                            
+                        </p>
+                    </li>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class="texto_boldado">class:</span> 
+                            identifies that a class is being created that will contain attributes and methods.
+                            The HelloWorld class has only one main method in Java.                            
+                        </p>
+                    </li>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class="texto_boldado">static:</span> 
+                            the static keyword tells us that this method is accessible without instantiating the class.                           
+                        </p>
+                    </li>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class="texto_boldado">void:</span> 
+                            the void keyword tells you that this method will return nothing.                        
+                        </p>
+                    </li>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class="texto_boldado">main():</span> 
+                            is the first method to be executed by the JVM in a Java program, that is,
+                            every Java application MUST have a main () method defined exactly as shown in the example, otherwise, the program will not execute.                       
+                        </p>
+                    </li>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class="texto_boldado">public:</span> 
+                            it means that the class, method, or attribute can be accessed by any other class or method that is inside or in another program to communicate with it.                      
+                        </p>
+                    </li>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class="texto_boldado">System.out:</span> 
+                            this is the standard output stream used to produce the result of a program on an output device such as a computer screen.                     
+                        </p>
+                    </li>
+                    <li>
+                        <p class="texto_justificado">
+                            <span class="texto_boldado">println():</span> 
+                            this method in Java is used to display text on the console.
+                            It prints the text on the console and the cursor moves to the beginning of the next line on the console.
+                            The next impression occurs from the next line.                    
+                        </p>
+                    </li>
+                </ol>
+                <h3>Java Package</h3>
+                <p class="texto_justificado">
+                    With the Java language, you can choose the names of your classes, such as Book, Animal or Person.
+                    You may end up using the same name to name two different classes.
+                    This situation is called a name collision and occurs frequently.
+                    The Java language uses packages to resolve these conflicts.
+                    A Java package is a mechanism that provides a namespace - from an area within which names are unique, but outside of them they may not be.
+                    To uniquely identify a building, it is necessary to qualify it including its namespace.
+                    Packages also provide you with a good way to create more complex applications with discrete units of functionality.
+                </p>
+                <pre><code>package entity;</code></pre>
+                <h3>Import in Java</h3>
+                <p class="texto_justificado">
+                    An import tells the Java compiler where to find classes referenced within the code.
+                    Any non-trivial class uses other classes for some functionality and importing is how the Java compiler is told about them.
+                </p>
+                <pre><code>import entity.Car;</code></pre>
+                <blockquote>
+                    <p class="texto_destaque">
+                        To import all classes within a package, just. * After the package name.
+                        Importing a package in its entirety can make the code less readable, so it is recommended to 
+                        import only the necessary classes, using their names in full.
+                    </p>
+                </blockquote>
+                <pre><code>import entity.*;</code></pre>
+                <h3>Java Naming Convention</h3>
+                <h5>Class</h5>
+                <p class="texto_justificado">
+                    It is possible to name classes as the programmer wishes, but the convention is to use <i>camel case</i>: start with a capital letter, change it to concatenated capital letters and make all other letters lowercase.
+                    Class names must contain only letters and numbers.
+                    Adherence to these guidelines ensures that the code is more accessible to other developers who are following the same conventions.
+                </p>
+                <p class="texto_justificado">
+                    A class can have essentially two types of members: <span class = "texto_destaque">variables</span> and <span class = "texto_destaque">methods</span>.
+                </p>
+                <h5>Variables</h5>
+                <p class="texto_justificado">
+                    The values of variables of a specific class distinguish each instance of that class and define its state.
+                    These values are often referred to as instance variables. A variable has:
+                </p>
+                <ul>
+                    <li><i>accessModifier</i> (Access Modifier)</li>
+                    <li><i>dataType</i> (Stored Data Type)</li>
+                    <li><i>variableName</i> (Variable Name)</li>
+                    <li>Opcionalmente, <i>initialValue</i> (Initialization Value)</li>
+                </ul>
+                <p class="texto_justificado">
+                    The <i>accessModifier</i> can be defined as:
+                </p>
+                <ui>
+                    <ol>
+                        <span class="texto_boldado">public:</span>
+                        any object in any program package can see the variable.
+                        <pre><code>public String name;</code></pre>
+                        <blockquote>
+                            <p class="texto_destaque">
+                                It is strongly recommended to avoid using public variables, but in extremely rare cases, they may be necessary, therefore, the option exists.
+                                The Java platform doesn't limit your use cases, so it's up to you to be disciplined about using good coding conventions, even when prompted to do otherwise.
+                            </p>
+                        </blockquote>
+                    </ol>
+                    <ol>
+                        <span class="texto_boldado">protected:</span>
+                        any object defined in the same package or a subclass (defined in any package) can see the variable.
+                        <pre><code>protected String name;</code></pre>
+                    </ol>
+                    <ol>
+                        <span class="texto_boldado">private:</span>
+                        only the class containing the variable can see it.
+                        <pre><code>private String name;</code></pre>
+                    </ol>
+                    <ol>
+                        <span class="texto_boldado">No specifier (also called friendly access or private package):</span>
+                        only objects whose classes are defined in the same package can see the variable.
+                        <pre><code>String name;</code></pre>
+                    </ol>
+                </ui>
+                <p class="texto_justificado">
+                    The <i>dataType</i> variable depends on what the variable is, it can be a primitive type or another type of class.
+                </p>
+                <pre><code>//primitive
+    private String name;
+
+    //class
+    private Car car;</code></pre>
+                <p class="texto_justificado">
+                    The <i>variableName</i> it is the programmer's responsibility to define the name, but, by convention, 
+                    variable names use the <i>camel case</i> convention because they start with a lowercase letter.
+                </p>
+                <p class="texto_justificado">
+                    The <i>initialValue</i> it is when a value is defined for the variable at the moment of the declaration.
+                </p>
+                <pre><code>private String name = "Sastelvio";</code></pre>
+                <h5>Methods</h5>
+                <p class="texto_justificado">
+                    A class's methods define its behavior.
+                    Methods fall into two main categories: constructors or all other methods, of which there are many types.
+                    A constructor method is used only to create an instance of a class.
+                    Other types of methods can be used for virtually any program behavior.                   
+                </p>
+                <p class="texto_justificado">
+                    The definition of a method includes the following elements:                   
+                </p>
+                <ul>
+                    <li><i>accessModifier</i> (Access Modifier)</li>
+                    <li><i>returnType</i> (Return Type)</li>
+                    <li><i>methodName</i> (Method Name)</li>
+                    <li><i>argumentList</i> (Arguments)</li>
+                </ul>
+                <blockquote>
+                    <p class="texto_destaque">
+                        The combination of these structural elements in a method definition is called a method signature.
+                    </p>
+                </blockquote>
+                <p class="texto_justificado">
+                    The <i>accessModifier</i> follows the same specifications previously described in the variables.
+                </p>
+                <p class="texto_justificado">
+                    The <i>returnType</i> informs the type of return that the method will give after executing the commands present in it.
+                    A method can return <span class = "texto_destaque"> <i>void</i></span> (No Data), when it returns nothing at the end of its execution, primitive type when it returns a value of a type primitive or class, when it returns a class-type value.
+                </p>
+                <pre><code>//void return method (No Data)
+    private void submit(){
+    }
+
+    //primitive type return method
+    private int count(){
+    }
+
+    //method with type return of a class
+    private Car accelerate(){
+    }</code></pre>
+                <p class="texto_justificado">
+                    The <i>argumentList</i> are the arguments/parameters that the method uses to carry out its activities and 
+                    are separated by commas and the arguments cannot have the same name in the same method, it can be argumentType 
+                    is a primitive type or another type of class.
+                </p>
+                <pre><code>//method with primitive data type argument
+    private void submit(int age, String name){
+    }
+
+    //method with class data type argument
+    private int count(Person person){
+    }</code></pre>
+                <h5>Constructor Method</h5>
+                <p class="texto_justificado">
+                    Constructor methods are used to specify how to instantiate a class.
+                    The name of the constructor must match the name of the class.
+                    Therefore, if you call your class <i> Person </i>, the name of the builder must also be <i>Person</i>. 
+                    And for any builder other than the default builder, there must be an <i>argumentList</i>
+                </p>
+                <blockquote>
+                    <p class="texto_destaque">
+                        The entire Java class has a constructor method with no arguments that is used by default to instantiate the class.
+                        However, as soon as a constructor method with arguments/parameters is created, the standard constructor method is automatically disabled, making its explicit definition necessary.
+                    </p>
+                </blockquote>
+                <pre><code>package entity;
+    public class Person {
+    //variables
+    private String name;
+    private int age;
+    private double height;
+    private double  weight;
+    private String eyeColor;
+    private String gender;
+
+    //constructor method without arguments
+    public Person() {
+            // acction when instantiate the non-argument method
+    }
+
+    //constructor method with arguments
+    public Person(String name, int age, double height, double weight, String eyeColor, String gender) {
+            this.name = name;
+            this.age = age;
+            this.height = height;
+            this.weight = weight;
+            this.eyeColor = eyeColor;
+            this.gender = gender;
+    }
+    }</code></pre>
+                <blockquote>
+                    <p class="texto_destaque">
+                        In the code above there is the keyword <i> this </i> which allows informing the compiler that this is the class variable since in the arguments of the constructor method there are arguments with the same names.
+                    </p>
+                </blockquote>       
+                <h3>Primitive Data Types</h3>
+                <p class="texto_justificado">
+                    Data types are a combination of values and operations that a variable can perform, which can vary depending on the operating system and the computer language.
+                    They are used to indicate to the compiler the necessary conversions to obtain the values in memory during the compilation of the program.
+                </p>
+                <p class="texto_justificado">
+                    In Java, we have:
+                </p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Size</th>
+                                <th>Default Value</th>
+                                <th>Value Range</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i>boolean</i></td>
+                                <td>n/a</td>
+                                <td><i>false</i></td>
+                                <td><i>true</i> or <i>false</i></td>
+                            </tr>
+                            <tr>
+                                <td><i>byte</i></td>
+                                <td><i>8 bits</i></td>
+                                <td>0</td>
+                                <td>-128 up to 127</td>
+                            </tr>
+                            <tr>
+                                <td><i>char</i></td>
+                                <td><i>16 bits</i></td>
+                                <td>n/a</td>
+                                <td><i>\u0000′ \u0000′</i> up to <i>\uffff’</i> or 0 up to 65535</td>
+                            </tr>
+                            <tr>
+                                <td><i>short</i></td>
+                                <td><i>16 bits</i></td>
+                                <td>0</td>
+                                <td>-32768 up to 32767</td>
+                            </tr>
+                            <tr>
+                                <td><i>int</i></td>
+                                <td><i>32 bits</i></td>
+                                <td>0</td>
+                                <td>-2147483648 up to 2147483647</td>
+                            </tr>
+                            <tr>
+                                <td><i>long</i></td>
+                                <td><i>64 bits</i></td>
+                                <td>0</td>
+                                <td>-9223372036854775808 up to 9223372036854775807</td>
+                            </tr>
+                            <tr>
+                                <td><i>float</i></td>
+                                <td><i>32 bits</i></td>
+                                <td>0.0</td>
+                                <td>1.17549435e-38 up to 3.4028235e+38</td>
+                            </tr>
+                            <tr>
+                                <td><i>double</i></td>
+                                <td><i>64 bits</i></td>
+                                <td>0.0</td>
+                                <td>4.9e-324 up to 1.7976931348623157e+308</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <blockquote>
+                    <p class="texto_destaque">
+                        The <i>String</i> is commonly identified as a primitive type, however, it is not. It is a special type of data that derives from the class java.lang.Object, which roughly, can be identified as an Array of chars.
+                    </p>
+                </blockquote>
+                <h2 class="texto_destaque">Conclusion</h2>
+                <p class="texto_justificado">
+                    In this article he saw the fundamentals of the Java language, where he briefly went through the history of its creation and evolution, its particularities of coding, compilation and execution, being able to identify why it is a better language compared to most of the languages present in the market.
+                </p>
+                <p class="texto_justificado">
+                    Stay tuned to the blog for follow-up articles on the Java language and other articles on other languages, technologies or areas of interest.
+                </p>
+                <h3>
+                    <p class="texto_justificado texto_destaque">
+                        <i>Cheers...</i>                 
+                    </p>
+                </h3>
+                <div class="entry__taxonomies">
+                    <div class="entry__cat">
+                        <h5>Posted on: </h5>
+                        <span class="entry__tax-list">
+                            <a href="../category.html">Technology</a>
+                        </span>
+                    </div> 
+                    <div class="entry__tags">
+                        <h5>Tags: </h5>
+                        <span class="entry__tax-list entry__tax-list--pill">
+                            <a href="#0">Java</a>
+                            <a href="#0">OOP</a>
+                            <a href="#0">POO</a>
+                            <a href="#0">Programming</a>
+                        </span>
+                    </div> 
+                </div> 
+                <div class="entry__author">
+                    <img src="../../../../rsc/img/icon/sas_logo.png" alt="">
+                    <div class="entry__author-about">
+                        <h5 class="entry__author-name">
+                            <span>Posted by</span>
+                            <a href="http://www.sastelvio.com/en/" target="_blank">Sastelvio Serafim Manuel</a>
+                        </h5>
+                        <div class="entry__author-desc">
+                            <p>
+                                I am a University Teacher at the Catholic University of Mozambique and a Software Developer.
+                                Aviation, Clean Energy, Graphic Design and Investment Enthusiast.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </article> 
+        <div class="s-content__entry-nav">
+            <div class="row s-content__nav">
+                <div class="col-six s-content__prev">
+                    <a href="#0" rel="prev">
+                        <span>Previous Articles</span>
+                        How to Optimize Your Work Environment
+                    </a>
+                </div>
+                <div class="col-six s-content__next">
+                    <a href="../../energy/article/1.html" rel="next">
+                        <span>Next Article</span>
+                        Why Invest in Solar Energy for Your Home
+                    </a>
+                </div>
+            </div>
+        </div> 
+        <!--
+        <div class="comments-wrap">
+            <div id="comments" class="row">
+                <div class="col-full">
+                    <h3 class="h2">5 Comments</h3>
+
+                    <ol class="commentlist">
+                        <li class="depth-1 comment">
+                            <div class="comment__avatar">
+                                <img class="avatar" src="images/avatars/user-01.jpg" alt="" width="50" height="50">
+                            </div>
+                            <div class="comment__content">
+                                <div class="comment__info">
+                                    <div class="comment__author">Itachi Uchiha</div>
+                                    <div class="comment__meta">
+                                        <div class="comment__time">Jun 15, 2018</div>
+                                        <div class="comment__reply">
+                                            <a class="comment-reply-link" href="#0">Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment__text">
+                                    <p>Adhuc quaerendum est ne, vis ut harum tantas noluisse, id suas iisque mei. Nec te inani ponderum vulputate,
+                                        facilisi expetenda has et. Iudico dictas scriptorem an vim, ei alia mentitum est, ne has voluptua praesent.</p>
+                                </div>
+                            </div>
+                        </li> 
+                        <li class="thread-alt depth-1 comment">
+                            <div class="comment__avatar">
+                                <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
+                            </div>
+                            <div class="comment__content">
+                                <div class="comment__info">
+                                    <div class="comment__author">John Doe</div>
+                                    <div class="comment__meta">
+                                        <div class="comment__time">Jun 15, 2018</div>
+                                        <div class="comment__reply">
+                                            <a class="comment-reply-link" href="#0">Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment__text">
+                                    <p>Sumo euismod dissentiunt ne sit, ad eos iudico qualisque adversarium, tota falli et mei. Esse euismod
+                                        urbanitas ut sed, et duo scaevola pericula splendide. Primis veritus contentiones nec ad, nec et
+                                        tantas semper delicatissimi.</p>
+                                </div>
+                            </div>
+                            <ul class="children">
+                                <li class="depth-2 comment">
+                                    <div class="comment__avatar">
+                                        <img class="avatar" src="images/avatars/user-03.jpg" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="comment__content">
+                                        <div class="comment__info">
+                                            <div class="comment__author">Kakashi Hatake</div>
+                                            <div class="comment__meta">
+                                                <div class="comment__time">Jun 15, 2018</div>
+                                                <div class="comment__reply">
+                                                    <a class="comment-reply-link" href="#0">Reply</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment__text">
+                                            <p>Duis sed odio sit amet nibh vulputate
+                                                cursus a sit amet mauris. Morbi accumsan ipsum velit. Duis sed odio sit amet nibh vulputate
+                                                cursus a sit amet mauris</p>
+                                        </div>
+                                    </div>
+                                    <ul class="children">
+                                        <li class="depth-3 comment">
+                                            <div class="comment__avatar">
+                                                <img class="avatar" src="images/avatars/user-04.jpg" alt="" width="50" height="50">
+                                            </div>
+                                            <div class="comment__content">
+                                                <div class="comment__info">
+                                                    <div class="comment__author">John Doe</div>
+                                                    <div class="comment__meta">
+                                                        <div class="comment__time">Jun 15, 2018</div>
+                                                        <div class="comment__reply">
+                                                            <a class="comment-reply-link" href="#0">Reply</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment__text">
+                                                    <p>Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est
+                                                        etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li class="depth-1 comment">
+                            <div class="comment__avatar">
+                                <img class="avatar" src="images/avatars/user-02.jpg" alt="" width="50" height="50">
+                            </div>
+                            <div class="comment__content">
+                                <div class="comment__info">
+                                    <div class="comment__author">Shikamaru Nara</div>
+                                    <div class="comment__meta">
+                                        <div class="comment__time">Jun 15, 2018</div>
+                                        <div class="comment__reply">
+                                            <a class="comment-reply-link" href="#0">Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment__text">
+                                    <p>Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</p>
+                                </div>
+                            </div>
+                        </li> 
+                    </ol>
+
+                </div> 
+            </div> 
+            <div class="row comment-respond">
+
+                <div id="respond" class="col-full">
+                    <h3 class="h2">Add Comment <span>Your email address will not be published</span></h3>
+                    <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
+                        <fieldset>
+                            <div class="form-field">
+                                <input name="cName" id="cName" class="full-width" placeholder="Your Name*" value="" type="text">
+                            </div>
+                            <div class="form-field">
+                                <input name="cEmail" id="cEmail" class="full-width" placeholder="Your Email*" value="" type="text">
+                            </div>
+                            <div class="form-field">
+                                <input name="cWebsite" id="cWebsite" class="full-width" placeholder="Website" value="" type="text">
+                            </div>
+                            <div class="message form-field">
+                                <textarea name="cMessage" id="cMessage" class="full-width" placeholder="Your Message*"></textarea>
+                            </div>
+                            <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large full-width" value="Add Comment" type="submit">
+                        </fieldset>
+                    </form> 
+                </div>
+
+            </div> 
+        </div> 
+        -->
+    </section>
+{% endblock %}

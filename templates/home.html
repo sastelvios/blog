@@ -13,7 +13,7 @@
                                 <div class="entry__background" style="background-image:url('{{post.cover.url}}');"></div>
                                 <div class="entry__content">
                                     <span class="entry__category"><a href="categories/technology/category.html">{{post.category}}</a></span>
-                                    <h1><a href="categories/technology/article/1.html" title="">{{post.title}}</a></h1>
+                                    <h1><a href="/posts/{{ post.pk }}" title="">{{post.title}}</a></h1>
                                     <div class="entry__info">
                                         <a href="#0" class="entry__profile-pic">
                                             <img class="avatar" src="{% static 'img/avatar.png' %}" alt="">
@@ -31,7 +31,6 @@
             </div> 
         </div>
     </section> 
-
     <section class="s-content">
         <div class="row entries-wrap wide">
             <div class="entries">
@@ -78,7 +77,5 @@
                 </nav>
             </div>
         </div>
-    </section> 
-
-    
+    </section>     
 {% endblock %}

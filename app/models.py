@@ -14,10 +14,10 @@ class Category(models.Model):
         return self.category
 
 class Post(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=150)
     category = models.ForeignKey(Category, on_delete=models.PROTECT)
     cover = models.ImageField(upload_to='posts')
-    summary = RichTextField()
+    summary = models.CharField(max_length=255)
     content = RichTextUploadingField()
     author = models.ForeignKey(User, on_delete=models.PROTECT)
     created_at = models.DateField(auto_now_add=True)

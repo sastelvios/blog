@@ -1,0 +1,8 @@
+1. have featured posts (table on db that allows only 5 posts to be features, the id can allow only between 1 to 5 so it can't allow more rows)
+2. have popular posts (a table that store how many times a post was clicked and visualized)
+3. search posts
+4. fix links
+5. On post visualization, work on previus and next post, if it is the first one the previous will be empty and if it is the last one the next will be empty
+6. SHow posts by category
+7. Show posts by  author
+8. Show posts by months

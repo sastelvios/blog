@@ -128,7 +128,42 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = Path.joinpath(BASE_DIR, "media")
+#To set where the images are uploaded
 CKEDITOR_UPLOAD_PATH = "uploads/"
+#To allow only images
+CKEDITOR_ALLOW_NONIMAGE_FILES = False 
+
+#To edit the main CKEditor CSS to add some customized style
+CKEDITOR_CONFIGS = {
+    'default': {
+        'stylesSet': [
+            {
+                "name": 'Justify Text',
+                "element": 'p',
+                "attributes": {'class': 'texto_justificado'},
+            },
+            {
+                "name": 'Sub Title 1',
+                "element": 'h2',
+                "attributes": {'class': 'texto_destaque'},
+            },
+            {
+                "name": 'Sub Title 2',
+                "element": 'h3',
+            },
+            {
+                "name": 'Highlight Text',
+                "element": 'span',
+                "attributes": {'class': 'texto_destaque'},
+            },
+            {
+                "name": 'Quote',
+                "element": 'blockquote',
+            },
+            
+        ],
+    },
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
