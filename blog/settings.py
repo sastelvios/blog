@@ -138,11 +138,6 @@ CKEDITOR_CONFIGS = {
     'default': {
         'stylesSet': [
             {
-                "name": 'Justify Text',
-                "element": 'p',
-                "attributes": {'class': 'texto_justificado'},
-            },
-            {
                 "name": 'Sub Title 1',
                 "element": 'h2',
                 "attributes": {'class': 'texto_destaque'},
@@ -157,11 +152,34 @@ CKEDITOR_CONFIGS = {
                 "attributes": {'class': 'texto_destaque'},
             },
             {
+                "name": 'Table Responsive DIV',
+                "element": 'div',
+                "attributes": {'class': 'table-responsive'},
+            },
+            {
                 "name": 'Quote',
-                "element": 'blockquote',
+                "element": 'p',
+                "attributes": {'class': 'blockquote texto_destaque'},
             },
             
         ],
+        'skin': 'moono',
+        'toolbar_Customized_Sas': [ #TO SET A CUSTOMIZED TOOLBAR WITH WANTED OPTIONS
+            {'name': 'styles', 'items': ['Styles']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},  
+            {'name': 'basicstyles', 'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph', 'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
+                       'Language']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert', 'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks', 'Preview']},
+            {'name': 'about', 'items': ['About']},
+        ],
+        'toolbar': 'Customized_Sas', #TO USE THE CUSTOMIZED TOOLBAR
+        'height': 600,
+        'width': 1200,
     },
 }
 

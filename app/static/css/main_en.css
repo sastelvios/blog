@@ -243,13 +243,13 @@ small {
     line-height: inherit;
 }
 
-blockquote {
+.blockquote {
     margin: 6rem 0;
     padding: 0 6rem;
     position: relative;
 }
 
-blockquote::before {
+.blockquote::before {
     content: "\201C";
     font-size: 28rem;
     line-height: 0;
@@ -262,7 +262,7 @@ blockquote::before {
     left: -1.2rem;
 }
 
-blockquote p {
+.blockquote p {
     font-family: 'Ubuntu';
     padding: 0;
     font-size: 2.7rem;
@@ -270,7 +270,7 @@ blockquote p {
     color: #000000;
 }
 
-blockquote cite {
+.blockquote cite {
     display: block;
     font-family: 'Ubuntu';
     font-size: 1.5rem;
@@ -279,46 +279,46 @@ blockquote cite {
     color: rgba(0, 0, 0, 0.5);
 }
 
-blockquote cite::before {
+.blockquote cite::before {
     content: "\2014 \0020";
 }
 
-blockquote cite a, blockquote cite a:visited {
+.blockquote cite a, .blockquote cite a:visited {
     color: rgba(0, 0, 0, 0.5);
     border: none;
 }
 
 @media only screen and (max-width:1200px) {
-    blockquote {
+    .blockquote {
         padding: 0 0 0 6rem;
     }
 
-    blockquote p {
+    .blockquote p {
         font-size: 2.6rem;
     }
 
 }
 
 @media only screen and (max-width:1000px) {
-    blockquote p {
+    .blockquote p {
         font-size: 2.5rem;
     }
 
 }
 
 @media only screen and (max-width:800px) {
-    blockquote {
+    .blockquote {
         padding: 0 0 0 3rem;
     }
 
-    blockquote p {
+    .blockquote p {
         font-size: 2.5rem;
     }
 
 }
 
 @media only screen and (max-width:400px) {
-    blockquote p {
+    .blockquote p {
         font-size: 2.2rem;
     }
 
@@ -1191,14 +1191,14 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     right: 0;
 }
 
-.pull-quote blockquote {
+.pull-quote .blockquote {
     margin: 0;
     padding-left: 4.5rem;
     padding-right: 0;
     position: relative;
 }
 
-.pull-quote blockquote p {
+.pull-quote .blockquote p {
     font-family: 'Ubuntu';
     font-weight: 600;
     padding: 0;
@@ -1207,7 +1207,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     color: #000000;
 }
 
-.pull-quote blockquote:before {
+.pull-quote .blockquote:before {
     content: none;
 }
 
